@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile | Dr.Finder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body { background-color: #f4f7f6; }
+    .profile-card { border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .avatar-upload { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .status-badge { font-size: 0.75rem; padding: 5px 12px; border-radius: 50px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<div class="container my-5">
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="card profile-card p-4 text-center">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="avatar-upload mx-auto mb-3">
+        <h4 class="fw-bold">Hasan Ahmed</h4>
+        <p class="text-muted">hasan@email.com</p>
+        <hr>
+        <div class="list-group list-group-flush text-start">
+          <a href="#" class="list-group-item list-group-item-action border-0 py-3 active rounded-3"><i class="fa-solid fa-calendar-check me-2"></i> My Appointments</a>
+          <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i class="fa-solid fa-user-pen me-2"></i> Edit Profile</a>
+          <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i class="fa-solid fa-file-medical me-2"></i> Medical Records</a>
+          <a href="#" class="list-group-item list-group-item-action border-0 py-3 text-danger"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="card profile-card p-4">
+        <h5 class="fw-bold mb-4">Upcoming Appointments</h5>
+        
+        <div class="d-flex align-items-center p-3 border rounded-4 mb-3">
+          <div class="bg-primary text-white p-3 rounded-4 text-center me-3" style="min-width: 80px;">
+            <div class="small">JAN</div>
+            <div class="h4 fw-bold mb-0">15</div>
+          </div>
+          <div class="flex-grow-1">
+            <h6 class="fw-bold mb-1">Dr. Abul Kalam Rahman</h6>
+            <p class="text-muted small mb-0"><i class="fa-solid fa-clock me-1"></i> 10:30 AM | In_person</p>
+          </div>
+          <div>
+            <span class="badge bg-success-subtle text-success status-badge">Confirmed</span>
+          </div>
+        </div>
+
+        <h5 class="fw-bold mt-5 mb-4">Past Records</h5>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Prescription</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dr. Nusrat Jahan</td>
+                <td>20 Dec 2025</td>
+                <td><button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-download"></i></button></td>
+                <td><span class="badge bg-secondary status-badge">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

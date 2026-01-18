@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Dashboard | DoctorFinder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    :root {
+      --doctor-primary: #059669; /* Medical Green */
+      --doctor-dark: #064e3b;
+    }
+    body { background-color: #f0fdf4; font-family: 'Segoe UI', sans-serif; }
+    
+    /* Sidebar */
+    .sidebar {
+      min-height: 100vh;
+      background-color: var(--doctor-dark);
+      color: white;
+    }
+    .sidebar .nav-link {
+      color: rgba(255,255,255,0.7);
+      padding: 15px 20px;
+      transition: 0.3s;
+    }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active {
+      background-color: var(--doctor-primary);
+      color: white;
+    }
+
+    /* Cards */
+    .stat-card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .stat-card:hover { transform: translateY(-5px); }
+
+    .verified-badge {
+      background-color: #d1fae5;
+      color: #065f46;
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn-prescription {
+      background-color: var(--doctor-primary);
+      color: white;
+      border: none;
+    }
+    .btn-prescription:hover {
+      background-color: var(--doctor-dark);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    
+    <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse px-0 shadow">
+      <div class="p-3 text-center border-bottom border-secondary">
+        <h4 class="fw-bold"><i class="fa-solid fa-user-doctor me-2"></i> Dr. Panel</h4>
+      </div>
+      <div class="nav flex-column mt-3">
+        <a class="nav-link active" href="#"><i class="fa-solid fa-house me-2"></i> Dashboard</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-calendar-days me-2"></i> Appointments</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-users me-2"></i> My Patients</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Earnings</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-star me-2"></i> Reviews</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-gear me-2"></i> Clinic Settings</a>
+        <hr class="mx-3 border-secondary">
+        <a class="nav-link text-warning" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+      
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="fw-bold text-dark">Hello, Dr. Abul Kalam Rahman</h2>
+          <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> BMDC VERIFIED</span>
+        </div>
+        <div class="text-end">
+          <p class="mb-0 text-muted">Current Status:</p>
+          <span class="badge bg-success">Online / Accepting Patients</span>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-3">
+          <div class="card stat-card p-3">
+            <h6 class="text-muted small uppercase">Today's Patients</h6>
+            <h2 class="fw-bold">14</h2>
+            <div class="text-success small"><i class="fa-solid fa-arrow-up"></i> 2 more than yesterday</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card p-3">
+            <h6 class="text-muted small">Pending Requests</h6>
+            <h2 class="fw-bold text-warning">05</h2>
+            <div class="text-muted small">Waiting for approval</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card p-3">
+            <h6 class="text-muted small">Total Earnings (Jan)</h6>
+            <h2 class="fw-bold text-primary">৳ 45,200</h2>
+            <div class="text-muted small">85% Paid via Bkash</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card p-3">
+            <h6 class="text-muted small">Overall Rating</h6>
+            <h2 class="fw-bold text-warning">4.9 <i class="fa-solid fa-star fs-5"></i></h2>
+            <div class="text-muted small">From 120+ patients</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+          <h5 class="mb-0 fw-bold">Today's Appointments Schedule</h5>
+          <button class="btn btn-sm btn-outline-success">Manage Slots</button>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="bg-light">
+                <tr>
+                  <th class="ps-4">Patient Details</th>
+                  <th>Age/Gender</th>
+                  <th>Time Slot</th>
+                  <th>Type</th>
+                  <th>Payment</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ps-4">
+                    <div class="fw-bold">Tanvir Ahmed</div>
+                    <div class="small text-muted">ID: #PT-8822</div>
+                  </td>
+                  <td>28 / Male</td>
+                  <td>10:30 AM</td>
+                  <td><span class="badge bg-info-subtle text-info rounded-pill">In-Person</span></td>
+                  <td><span class="text-success fw-bold">৳ 800 (Paid)</span></td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-prescription"><i class="fa-solid fa-file-prescription me-1"></i> Prescription</button>
+                    <button class="btn btn-sm btn-light border"><i class="fa-solid fa-ellipsis"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4">
+                    <div class="fw-bold">Nusrat Jahan</div>
+                    <div class="small text-muted">ID: #PT-8825</div>
+                  </td>
+                  <td>24 / Female</td>
+                  <td>11:00 AM</td>
+                  <td><span class="badge bg-info-subtle text-info rounded-pill">In-Person</span></td>
+                  <td><span class="text-danger fw-bold">Unpaid</span></td>
+                  <td class="text-center">
+                    <button class="btn btn-sm btn-outline-danger me-1">Cancel</button>
+                    <button class="btn btn-sm btn-success">Approve</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer bg-white text-center py-3">
+          <a href="#" class="text-decoration-none">View All Appointments</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dr.Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #f0f4f8;
+      }
+
+      .search-hero {
+      background: linear-gradient(45deg, #0d6efd, #00d2ff);
+      padding: 60px 0;
+      border-radius: 0 0 40px 40px;
+      color: white;
+    }
+    .search-container {
+      background: white;
+      padding: 15px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-top: -40px;
+    }
+
+    /* Premium Doctor Card */
+    .doctor-card {
+      background: white;
+      border: none;
+      border-radius: 25px;
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+    .doctor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    .doctor-img-container {
+      position: relative;
+      padding: 15px;
+    }
+    .doctor-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .availability-badge {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      background: #28a745;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      border: 3px solid white;
+    }
+
+    /* Fee & Action Section */
+    .fee-section {
+      background: #f8fbff;
+      border-radius: 0 0 25px 25px;
+      padding: 15px 20px;
+    }
+    .price-tag {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0d6efd;
+    }
+    .btn-book {
+      border-radius: 12px;
+      padding: 10px 25px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+    }
+
+    .specialty-tag {
+      background: #eef4ff;
+      color: #0d6efd;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+      .footer-vertical-links {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+      }
+
+      .footer-vertical-links li {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 12px !important;
+        float: none !important;
+        clear: both !important;
+      }
+
+      .footer-vertical-links li a {
+        color: #adb5bd !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        transition: 0.3s;
+      }
+
+      .footer-vertical-links li a:hover {
+        color: #0d6efd !important;
+        transform: translateX(5px);
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm"
+      style="background-color: #0d6efd"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold text-white" href="index.html">
+          <i class="fa-solid fa-house-medical"></i> Dr.Finder
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link text-white px-lg-3" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white px-lg-3" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link text-white px-lg-3" href="hospitals.html">Hospitals</a></li>
+        <li class="nav-item"><a class="nav-link text-white px-lg-3" href="speciality.html">Speciality</a></li>
+        <li class="nav-item"><a class="nav-link text-white px-lg-3" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link text-white px-lg-3" href="about.html">About Us</a></li>
+        
+
+            <li class="nav-item ms-lg-3">
+              <div class="dropdown">
+                <button
+                  class="btn btn-outline-light dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Login
+                </button>
+                <ul class="dropdown-menu shadow">
+                  <li>
+                    <a class="dropdown-item" href="login.html"
+                      ><i class="fa-solid fa-user-injured me-2"></i> Patient</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="Dlogin.html"
+                      ><i class="fa-solid fa-user-md me-2"></i> Doctor</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="search-hero text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Find & Book Top Specialists</h2>
+    <p class="opacity-75">More than 500+ verified doctors available for you</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="search-container">
+        <div class="row g-2">
+          <div class="col-md-4">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent border-0"><i class="fa-solid fa-stethoscope text-primary"></i></span>
+              <select class="form-select border-0 shadow-none">
+                <option selected>Select Specialty</option>
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Dermatology</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4 border-start">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent border-0"><i class="fa-solid fa-location-dot text-primary"></i></span>
+              <input type="text" class="form-control border-0 shadow-none" placeholder="Enter Location (e.g. Dhanmondi)">
+            </div>
+          </div>
+          <div class="col-md-4 d-grid">
+            <button class="btn btn-primary btn-lg rounded-pill px-4">Search Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="container my-5 pt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="fw-bold">Available Specialists</h4>
+    <div class="small text-muted">Showing 1-12 of 120 Doctors</div>
+  </div>
+
+  <div class="row g-4">
+    
+    <div class="col-lg-4 col-md-6">
+      <div class="card doctor-card shadow-sm h-100">
+        <div class="doctor-img-container">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=400" class="doctor-img" alt="Doctor">
+          <span class="availability-badge">Available Today</span>
+        </div>
+        <div class="card-body pt-0 px-4">
+          <div class="mb-2">
+            <span class="specialty-tag">Cardiologist</span>
+          </div>
+          <h5 class="fw-bold mb-1">Dr. Abul Kalam Rahman</h5>
+          <p class="text-muted small mb-3">MBBS, FCPS, MD (Heart Specialist)</p>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="text-warning me-2">
+              <i class="fa-solid fa-star"></i> 4.9
+            </div>
+            <span class="text-muted small border-start ps-2">120+ Happy Patients</span>
+          </div>
+          
+          <p class="small text-secondary"><i class="fa-solid fa-hospital me-1"></i> Popular Diagnostic, Dhanmondi</p>
+        </div>
+        
+        <div class="fee-section d-flex justify-content-between align-items-center border-top">
+          <div>
+            <small class="text-muted d-block">Consultation Fee</small>
+            <span class="price-tag">৳ 1200</span>
+          </div>
+          <button class="btn btn-primary btn-book">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="card doctor-card shadow-sm h-100">
+        <div class="doctor-img-container">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=400" class="doctor-img" alt="Doctor">
+          <span class="availability-badge" style="background: #ffc107; color: #000;">Next: Tomorrow</span>
+        </div>
+        <div class="card-body pt-0 px-4">
+          <div class="mb-2">
+            <span class="specialty-tag">Gynecologist</span>
+          </div>
+          <h5 class="fw-bold mb-1">Dr. Nusrat Jahan</h5>
+          <p class="text-muted small mb-3">MBBS, MS, BCS (Health)</p>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="text-warning me-2">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <span class="text-muted small border-start ps-2">250+ Success Cases</span>
+          </div>
+          
+          <p class="small text-secondary"><i class="fa-solid fa-hospital me-1"></i> Labaid Hospital, Gulshan</p>
+        </div>
+        
+        <div class="fee-section d-flex justify-content-between align-items-center border-top">
+          <div>
+            <small class="text-muted d-block">Consultation Fee</small>
+            <span class="price-tag">৳ 1000</span>
+          </div>
+          <button class="btn btn-primary btn-book">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="card doctor-card shadow-sm h-100">
+        <div class="doctor-img-container">
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=400" class="doctor-img" alt="Doctor">
+          <span class="availability-badge">Available Today</span>
+        </div>
+        <div class="card-body pt-0 px-4">
+          <div class="mb-2">
+            <span class="specialty-tag">Neurologist</span>
+          </div>
+          <h5 class="fw-bold mb-1">Dr. Tanvir Ahmed</h5>
+          <p class="text-muted small mb-3">MBBS, MD (Neurology)</p>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="text-warning me-2">
+              <i class="fa-solid fa-star"></i> 4.7
+            </div>
+            <span class="text-muted small border-start ps-2">80+ Reviews</span>
+          </div>
+          
+          <p class="small text-secondary"><i class="fa-solid fa-hospital me-1"></i> Ibn Sina, Uttara</p>
+        </div>
+        
+        <div class="fee-section d-flex justify-content-between align-items-center border-top">
+          <div>
+            <small class="text-muted d-block">Consultation Fee</small>
+            <span class="price-tag">৳ 1200</span>
+          </div>
+          <button class="btn btn-primary btn-book">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+  <div class="card doctor-card shadow-sm h-100">
+    <div class="doctor-img-container">
+      <img src="woman-2141808_1920.jpg" class="doctor-img" alt="Doctor">
+      <span class="availability-badge" style="background: #ffc107; color: #000;">Next: Tomorrow</span>
+    </div>
+    <div class="card-body pt-0 px-4">
+      <div class="mb-2">
+        <span class="specialty-tag">Gynecologist</span>
+      </div>
+      <h5 class="fw-bold mb-1">Dr. Farhana Zerin</h5>
+      <p class="text-muted small mb-3">MBBS, MS (Gynae & Obs), BCS (Health)</p>
+      
+      <div class="d-flex align-items-center mb-3">
+        <div class="text-warning me-2">
+          <i class="fa-solid fa-star"></i> 4.8
+        </div>
+        <span class="text-muted small border-start ps-2">250+ Success Cases</span>
+      </div>
+      
+      <p class="small text-secondary"><i class="fa-solid fa-hospital me-1"></i> Labaid Specialized, Dhanmondi</p>
+    </div>
+    
+    <div class="fee-section d-flex justify-content-between align-items-center border-top">
+      <div>
+        <small class="text-muted d-block">Consultation Fee</small>
+        <span class="price-tag">৳ 1200</span>
+      </div>
+      <button class="btn btn-primary btn-book">Book Now</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+  <div class="card doctor-card shadow-sm h-100">
+    <div class="doctor-img-container">
+      <img src="bruno-rodrigues-279xIHymPYY-unsplash.jpg" class="doctor-img" alt="Doctor">
+      <span class="availability-badge">Available Today</span>
+    </div>
+    <div class="card-body pt-0 px-4">
+      <div class="mb-2">
+        <span class="specialty-tag">Neurologist</span>
+      </div>
+      <h5 class="fw-bold mb-1">Dr. Mushfiqur Rahman</h5>
+      <p class="text-muted small mb-3">MBBS, MD (Neurology), FINR (Switzerland)</p>
+      
+      <div class="d-flex align-items-center mb-3">
+        <div class="text-warning me-2">
+          <i class="fa-solid fa-star"></i> 4.7
+        </div>
+        <span class="text-muted small border-start ps-2">90+ Reviews</span>
+      </div>
+      
+      <p class="small text-secondary"><i class="fa-solid fa-hospital me-1"></i> Square Hospital, Panthapath</p>
+    </div>
+    
+    <div class="fee-section d-flex justify-content-between align-items-center border-top">
+      <div>
+        <small class="text-muted d-block">Consultation Fee</small>
+        <span class="price-tag">৳ 2000</span>
+      </div>
+      <button class="btn btn-primary btn-book">Book Now</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+  <div class="card doctor-card shadow-sm h-100">
+    <div class="doctor-img-container">
+      <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=400" class="doctor-img" alt="Doctor">
+      <span class="availability-badge">Available Today</span>
+    </div>
+    <div class="card-body pt-0 px-4">
+      <div class="mb-2">
+        <span class="specialty-tag">Dermatologist</span>
+      </div>
+      <h5 class="fw-bold mb-1">Dr. Sadia Afrin</h5>
+      <p class="text-muted small mb-3">MBBS, DDV (Skin & VD), FCPS</p>
+      
+      <div class="d-flex align-items-center mb-3">
+        <div class="text-warning me-2">
+          <i class="fa-solid fa-star"></i> 4.6
+        </div>
+        <span class="text-muted small border-start ps-2">180+ Happy Patients</span>
+      </div>
+      
+      <p class="small text-secondary"><i class="fa-solid fa-hospital me-1"></i> Ibn Sina Diagnostic, Uttara</p>
+    </div>
+    
+    <div class="fee-section d-flex justify-content-between align-items-center border-top">
+      <div>
+        <small class="text-muted d-block">Consultation Fee</small>
+        <span class="price-tag">৳ 1000</span>
+      </div>
+      <button class="btn btn-primary btn-book">Book Now</button>
+    </div>
+  </div>
+</div>
+
+  </div>
+</main>
+    <footer class="bg-dark text-white pt-5 pb-3">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-12">
+            <h4 class="fw-bold text-primary mb-3">
+              <i class="fa-solid fa-house-medical"></i> Dr.Finder
+            </h4>
+            <p class="text-secondary small">
+              Providing the most reliable medical expert search and booking
+              platform in Bangladesh. Your health is our priority.
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <h6 class="fw-bold mb-4 text-white">Quick Links</h6>
+            <ul class="footer-vertical-links">
+              <li><a href="doctors.html">Doctors</a></li>
+              <li><a href="hospitals.html">Hospitals</a></li>
+              <li><a href="speciality.html">Speciality</a></li>
+               <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <h6 class="fw-bold mb-4 text-white">Our Services</h6>
+            <ul class="footer-vertical-links">
+              <li><a href="#">Online Booking</a></li>
+              <li><a href="#">Emergency Care</a></li>
+              <li><a href="#">Health Tips</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-4">
+            <h6 class="fw-bold mb-4 text-white">Contact Us</h6>
+            <p class="text-secondary mb-2">
+              <i class="fa-solid fa-location-dot me-2"></i> Level 4, Health
+              Tower, Panthapath, Dhaka
+            </p>
+            <p class="text-secondary mb-2">
+              <i class="fa-solid fa-envelope me-2"></i> support@drfinder.com
+            </p>
+            <p class="text-secondary mb-2">
+              <i class="fa-solid fa-phone me-2"></i> +880 1700 000000
+            </p>
+          </div>
+        </div>
+        <hr class="mt-5 mb-4 border-secondary" />
+        <div class="text-center">
+          <p class="text-secondary small mb-0">
+            &copy; 2026 Dr.Finder | Developed by Arif Raugir
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
